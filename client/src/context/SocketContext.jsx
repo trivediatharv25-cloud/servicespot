@@ -14,7 +14,7 @@ export const SocketProvider = ({ children }) => {
     if (!user) return;
 
     // One socket connection per logged-in session
-    const socket = io("http://localhost:5000");
+    const socket = io(import.meta.env.VITE_API_URL || "http://localhost:5000");
     socketRef.current = socket;
 
     // Tell the server which "room" to put us in so it can target
